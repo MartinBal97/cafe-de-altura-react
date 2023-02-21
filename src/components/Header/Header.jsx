@@ -31,8 +31,7 @@ export default function Header() {
                     </div>
                     <p className="mr-[0.8rem]">+34 919 49 05 18</p>
                 </div>
-                <Button url={'/'} content={'Iniciar sesión'} color={'bg-[#515051]'} />
-                {/* <button className="bg-[#515051] py-[0.6rem] px-[2rem] rounded">Iniciar sesión</button> */}
+                <Button url={'/'} content={'Iniciar sesión'} bgColor={'bg-[#515051]'} />
             </div>
             <div>
                 <a className="flex items-center" href="./pages/cesta.html">

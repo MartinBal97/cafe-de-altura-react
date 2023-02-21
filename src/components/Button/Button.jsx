@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-export default function Button({url,color,content}) {
+export default function Button({url,bgColor,color,content}) {
   return (
-    <Link className={color} to={url}><button>{content}</button></Link>
+    <Link to={url}><button className={`${bgColor} ${color} m-2` }>{content}</button></Link>
   )
 }
