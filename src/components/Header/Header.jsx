@@ -3,7 +3,6 @@ import NavLink from '../NavLink/NavLink'
 import { Link } from "react-router-dom";
 import Button from '../Button/Button';
 
-
 export default function Header() {
     return (
         <header className=' flex items-center justify-between bg-[#2B2A2B] text-white'>
@@ -34,10 +33,10 @@ export default function Header() {
                 <Button url={'/'} content={'Iniciar sesión'} bgColor={'bg-[#515051]'} />
             </div>
             <div>
-                <a className="flex items-center" href="./pages/cesta.html">
+                <Link className="flex items-center" to="Cesta">
                     <img src="https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-112c9.appspot.com/o/carrito.png?alt=media&token=3519a4ec-0e26-4639-bc41-e40e851dfbca" alt="carrito" className="p-[1rem] mr-[0.6rem]" />
                     <p><span className="quantityProducts mr-[2rem]">0</span></p>
-                </a>
+                </Link>
             </div>
         </header>
     )

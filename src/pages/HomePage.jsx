@@ -7,6 +7,8 @@ import ThirdSection from '../components/Secciones/ThirdSection'
 import FourthSection from '../components/Secciones/FourthSection'
 import FifthSection from '../components/Secciones/FifthSection'
 import SixthSection from '../components/Secciones/SixthSection'
+import Footer from '../components/Footer/Footer'
+import CopyRight from '../components/CopyRight/CopyRight'
 
 
 export default function HomePage() {
@@ -21,6 +23,8 @@ export default function HomePage() {
       <FourthSection />
       <FifthSection />
       <SixthSection />
+      <Footer />
+      <CopyRight />
     </>
   )
 }

@@ -9,12 +9,12 @@ export default function ThirdSection({ products }) {
 
             <div className="flex my-12 justify-around flex-wrap">
                 {
-                    products.slice(0,4).map((product, i) => {
+                    products.slice(0, 4).map((product, i) => {
                         return (
-                            <Cards _id={product._id} available={product.available} brand={product.brand} img_url={product.img_url} price={product.price} key={i}/>
+                            <Cards _id={product._id} available={product.available} brand={product.brand} img_url={product.img_url} price={product.price} key={i} />
                         )
                     })
-                } 
+                }
             </div>
 
             <div className="flex justify-center items-center my-12">

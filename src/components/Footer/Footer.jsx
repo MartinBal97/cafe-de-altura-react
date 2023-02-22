@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
             <div className="w-[50%] flex">
                 <nav className="flex flex-col no-underline text-[#ffffff] w-[50%] list-none">
-                    <NavLink path={"Shop"} nameLink={'Tienda'}/> <br />
+                    <NavLink path={"/Shop"} nameLink={'Tienda'}/> <br />
                     <NavLink path={"/"} nameLink={'Suscripción'}/> <br />
                     <NavLink path={"/"} nameLink={'Para empresas'}/> <br />
                     <NavLink path={"/"} nameLink={'Sobre Nosotros'}/> <br />
