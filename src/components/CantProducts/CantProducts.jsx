@@ -5,16 +5,25 @@ import { CartContext } from '../../App';
 export default function CantProducts({brand,price,img,id,quantity}) {
 
 
-    const {cart} = useContext(CartContext);
+    const {setCart} = useContext(CartContext);
 
-    console.log(cart);
-
+    
     function sumar() {
-        
+        setCart(prev => {
+            prev[prev.findIndex(e => e._id === id)].quantity++
+            return [...prev]
+        })
     }
 
     function restar() {
-        
+        setCart(prev => {
+            let indice = prev.findIndex(e => e._id === id)
+            prev[indice].quantity--
+            if (prev[indice].quantity === 0) {
+                prev.splice(indice,1)
+            }
+            return [...prev]
+        })
     }
 
     return (

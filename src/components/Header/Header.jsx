@@ -3,7 +3,16 @@ import NavLink from '../NavLink/NavLink'
 import { Link } from "react-router-dom";
 import Button from '../Button/Button';
 
-export default function Header() {
+export default function Header({ cart }) {
+
+    const sumaCantProductos = (cart) => {
+        let cantProducts = cart.reduce((acc, e) => {
+            acc += e.quantity;
+            return acc;
+        }, 0);
+        return cantProducts;
+    };
+
     return (
         <header className=' flex items-center justify-between bg-[#2B2A2B] text-white'>
             <Link className="mx-[0.5rem]" to='/'>
@@ -13,14 +22,14 @@ export default function Header() {
                         <img src="https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-112c9.appspot.com/o/cafecito.png?alt=media&token=baa91583-ab37-4ea3-b4d9-2710fd8221b7" alt="logoCafe" className="w-[20.29px]" />
                     </div>
                 </div>
-            </Link>      
+            </Link>
             <nav>
                 <ul className='flex'>
-                    <NavLink path='Shop' nameLink ='Tienda' />
-                    <NavLink path='Suscripción' nameLink ='Suscripción' />
-                    <NavLink path='Para empresas' nameLink ='Para empresas' />
-                    <NavLink path='Sobre Nosotros' nameLink ='Sobre Nosotros' />
-                    <NavLink path='Contacto' nameLink ='Contacto' />
+                    <NavLink path='Shop' nameLink='Tienda' />
+                    <NavLink path='Suscripción' nameLink='Suscripción' />
+                    <NavLink path='Para empresas' nameLink='Para empresas' />
+                    <NavLink path='Sobre Nosotros' nameLink='Sobre Nosotros' />
+                    <NavLink path='Contacto' nameLink='Contacto' />
                 </ul>
             </nav>
             <div className="flex">
@@ -35,7 +44,7 @@ export default function Header() {
             <div>
                 <Link className="flex items-center" to="Cesta">
                     <img src="https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-112c9.appspot.com/o/carrito.png?alt=media&token=3519a4ec-0e26-4639-bc41-e40e851dfbca" alt="carrito" className="p-[1rem] mr-[0.6rem]" />
-                    <p><span className="quantityProducts mr-[2rem]">0</span></p>
+                    <p><span className="mr-[2rem]">{sumaCantProductos(cart)}</span></p>
                 </Link>
             </div>
         </header>
