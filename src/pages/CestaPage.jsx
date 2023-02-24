@@ -18,7 +18,7 @@ export default function CestaPage() {
   };
 
 
-  const updateEnvio = (e) => setEnvio(e.target.value) 
+  const updateEnvio = (e) => setEnvio(e.target.value)
 
   return (
     <>
@@ -66,19 +66,17 @@ export default function CestaPage() {
             </div>
           </div>
 
-
-
           <TotalCart valueEnvio={envio} />
 
 
-
-
         </div>
+
       </section>
 
+        <div className='fixed bottom-0 w-screen'>
+          <CopyRight />
+        </div>
 
-
-      <CopyRight />
     </>
   )
 }

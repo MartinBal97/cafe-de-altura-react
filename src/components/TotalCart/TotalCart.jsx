@@ -41,8 +41,8 @@ export default function TotalCart({valueEnvio}) {
                 </div>
             </div>
             <div className="totalCestaButtons mt-4">
-                <button className="btnCheckout">Ir a checkout</button>
-                <Button url={'/Shop'} bgColor={`bg-[#2a5b45]`} color={'text-white'} content={'Seguir comprando'} />
+                <button className="bg-[#2a5b45] text-white">Ir a checkout</button>
+                <Button url={'/Shop'} bgColor={``} color={'bg-[#2a5b45'} content={'Seguir comprando'} />
             </div>
         </div>
     )

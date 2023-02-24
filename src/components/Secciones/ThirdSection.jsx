@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Cards from '../Cards/Cards'
 
 export default function ThirdSection({ products }) {
@@ -18,7 +19,7 @@ export default function ThirdSection({ products }) {
             </div>
 
             <div className="flex justify-center items-center my-12">
-                <a className='text-sm mr-3 [text-shadow:_2px_4px_3px_rgba(0,0,0,0.3)]' href="./pages/shop.html">Ver todos</a>
+                <Link to={'/Shop'} className='text-sm mr-3 [text-shadow:_2px_4px_3px_rgba(0,0,0,0.3)]'>Ver todos</Link>
                 <img src="https://firebasestorage.googleapis.com/v0/b/cafe-de-altura-112c9.appspot.com/o/flechaRight.png?alt=media&token=12e038e9-4276-4907-972a-0084f7de6fe7" alt="flechaRight" />
             </div>
         </section>

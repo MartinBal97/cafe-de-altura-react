@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NavLink from '../NavLink/NavLink'
 import { Link } from "react-router-dom";
 import Button from '../Button/Button';
+import { CartContext } from '../../App';
 
-export default function Header({ cart }) {
+import { getAuth, signOut } from "firebase/auth";
+
+export default function Header({ user }) {
+
+    const {cart,setCart,setUsuario} = useContext(CartContext);
 
     const sumaCantProductos = (cart) => {
         let cantProducts = cart.reduce((acc, e) => {
@@ -12,6 +17,20 @@ export default function Header({ cart }) {
         }, 0);
         return cantProducts;
     };
+
+    const logOut = () => {
+
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            
+            setUsuario(undefined)
+            setCart([])
+            
+        }).catch((error) => {
+            console.log(error)
+            
+        });
+    }
 
     return (
         <header className=' flex items-center justify-between bg-[#2B2A2B] text-white'>
@@ -26,10 +45,10 @@ export default function Header({ cart }) {
             <nav>
                 <ul className='flex'>
                     <NavLink path='Shop' nameLink='Tienda' />
-                    <NavLink path='Suscripción' nameLink='Suscripción' />
-                    <NavLink path='Para empresas' nameLink='Para empresas' />
-                    <NavLink path='Sobre Nosotros' nameLink='Sobre Nosotros' />
-                    <NavLink path='Contacto' nameLink='Contacto' />
+                    <NavLink path='/' nameLink='Suscripción' />
+                    <NavLink path='/' nameLink='Para empresas' />
+                    <NavLink path='/' nameLink='Sobre Nosotros' />
+                    <NavLink path='/' nameLink='Contacto' />
                 </ul>
             </nav>
             <div className="flex">
@@ -39,7 +58,18 @@ export default function Header({ cart }) {
                     </div>
                     <p className="mr-[0.8rem]">+34 919 49 05 18</p>
                 </div>
-                <Button url={'/'} content={'Iniciar sesión'} bgColor={'bg-[#515051]'} />
+                {
+                    user ?
+                        <div className='flex items-center'>
+                            <p className='mx-2'>Hola {user.email}</p>
+                            <button className='bg-[#515051]' onClick={logOut}>Cerrar sesion</button>
+                        </div>
+                        :
+                        <div>
+                            <Button url={'SignIn'} bgColor={'bg-[#515051]'} color={'text-white'} content={'Iniciar sesion'} />
+                            <Button url={'SignUp'} bgColor={'bg-[#515051]'} color={'text-white'} content={'Registrarse'} />
+                        </div>
+                }
             </div>
             <div>
                 <Link className="flex items-center" to="Cesta">
